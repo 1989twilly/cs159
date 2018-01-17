@@ -1,0 +1,55 @@
+import java.io.*;
+
+/**
+ * Determine whether user input is an Integer, a Double, or a String.
+ * 
+ * @author timwilliams
+ * @version 1-12-17
+ */
+public class HW1 {
+	public static void main(String[] args) throws IOException {
+       
+		BufferedReader reader;
+		int sumInt = 0;
+		int sumChar = 0;
+		Boolean decimal = false;
+		
+        reader = new BufferedReader(new InputStreamReader
+            (System.in));
+        
+        System.out.print( "Please enter something: ");
+
+        String input = reader.readLine();
+        
+        System.out.println( "You entered: " + input + "." );
+        
+        for (int i = 0; i < input.length(); i++) {
+        		
+        		if (testForInt(input.charAt(i)) == true) {
+        			sumInt++;
+        		} else if (testForDecimal(input.charAt(i)) == true) {
+        			decimal = true;
+        		} else {
+        			sumChar++;
+        		}
+        		
+        }
+        //create a loop to go through the elements of the string
+        //within the loop check to see if the element is an integer
+        //check to see if there is only 1 char
+        //check to see whether the element is a "."
+        //check to see whether the element is a letter.
+        
+        //determine what the input is and create an input label
+        
+	}
+	public static boolean testForInt(char x) {
+		String integers = "0123456789";
+		for (int i; i < integers.length(); i++) {
+			return x == integers.charAt(i);
+		}
+	}
+	public static boolean testForDecimal(char x) {
+		return x == ".;"
+	}
+}

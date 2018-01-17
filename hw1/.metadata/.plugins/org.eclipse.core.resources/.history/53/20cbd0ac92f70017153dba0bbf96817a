@@ -1,0 +1,84 @@
+import java.io.*;
+
+/**
+ * Determine whether user input is an Integer, a Double, or a String.
+ * 
+ * @author timwilliams
+ * @version 1-12-17
+ */
+public class HW1 {
+	public static void main(String[] args) throws IOException {
+       
+		BufferedReader reader;
+		
+		int sumInt = 0;
+		
+		int sumChar = 0;
+		
+		Boolean decimal = false;
+		
+		String displayMessage = "";
+		
+        reader = new BufferedReader(new InputStreamReader
+            (System.in));
+        
+        System.out.print( "Please enter something: ");
+
+        String input = reader.readLine();
+        
+        for (int i = 0; i < input.length(); i++) {
+        		
+        		if (testForInt(input.charAt(i)) == true) {
+        			sumInt++;
+        		} else if (testForDecimal(input.charAt(i)) == true) {
+        			decimal = true;
+        		} else {
+        			sumChar++;
+        		}
+        		
+        }
+        
+        displayMessage = inputType(sumChar, sumInt, decimal, input);
+        
+        System.out.println( "You entered: " + input + displayMessage );
+        
+        
+        
+        
+	}
+	
+	public static boolean testForInt(char x) {
+		String integers = "0123456789";
+		for (int i = 0; i < integers.length(); i++) {
+			if (x == integers.charAt(i)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static boolean testForDecimal(char x) {
+		return x == '.';
+	}
+	
+	public static String inputType(int sumChar, int sumInt, boolean decimal, String input) {
+	   
+		String returnMessage = "";
+		
+	    	if (sumChar == 1) {
+	    		returnMessage = "(char)";
+	    } else if (sumChar > 1) {
+	    		returnMessage = "(String)";
+	    }
+	    
+	    if (sumInt == input.length()) {
+	    		returnMessage = "(int)";
+	    } else if (sumInt == input.length() - 1 && decimal == true) {
+	    		returnMessage = "(double)";
+	    } else {
+	    		returnMessage = "(String)";
+	    }
+	    
+	    return returnMessage;
+}
+}
