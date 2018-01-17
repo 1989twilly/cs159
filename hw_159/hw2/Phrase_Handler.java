@@ -1,5 +1,3 @@
-package homework2;
-
 import java.io.*;
 
 	public class Phrase_Handler{
@@ -105,7 +103,7 @@ import java.io.*;
 	     */
 		private boolean isConsonant( char x )
 		{
-			String consonant = "qwrtyplkjhgfdszxcvbnm";
+			String consonant = "qQwWrRtTyYpPlLkKjJhHgGfFdDsSzZxXcCvVbBnNmM";
 			boolean isValid = false;
 			
 			if ( consonant.indexOf(x) > -1 )
@@ -124,7 +122,7 @@ import java.io.*;
 		 */
 		private boolean isVowel( char x )
 		{
-			String vowel = "aeiou";
+			String vowel = "aeiouAEIOU";
 			boolean isValid = false;
 			
 			if ( vowel.indexOf(x) > -1 )
